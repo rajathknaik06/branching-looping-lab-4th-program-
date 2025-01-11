@@ -1,0 +1,124 @@
+""" Gabriel is working on a wildlife research project where he needs to compute various metrics for different animals based on their characteristics. Each animal type requires a different calculation: a deer’s distance traveled, a bear’s weight based on footprint size, or a bird’s altitude based on its flying pattern. 
+
+
+
+Conditions:
+
+For Deer (Mode 'D' or 'd'): Distance = speed of sound * time taken, where the speed of sound in air is 343 meters per second.
+For Bear (Mode 'B' or 'b'): Weight = footprint size * average weight, where the average weight per square inch for a bear is 5.0 pounds.
+For Bird (Mode 'F' or 'f'): Altitude = flying pattern * distance covered (in meters).
+
+
+Write a program to help Gabriel analyze the characteristics of animals based on the given inputs.
+
+Input format :
+The first line of input consists of a character, representing the type of animal 'D/d' for deer, 'B/b' for bear, and 'F/f' for bird.
+
+If the choice is 'D' or 'd':
+
+The second line of input consists of a floating-point value T, representing the time taken from the deer's location to the observer.
+
+If the choice is 'B' or 'b':
+
+The second line of input consists of a floating-point value S, representing the size of the bear's footprint in square inches.
+
+If the choice is 'F' or 'f':
+
+The second line of input consists of a floating-point value P, representing the bird's flying pattern.
+The third line consists of a floating-point value D, representing the distance covered by the bird in meters.
+Output format :
+The output prints one of the following:
+
+If the choice is 'D' or 'd':
+
+The output prints "Distance: X m" where X is a floating point value rounded off to two decimal places, representing the calculated distance traveled by the sound wave in meters.
+
+If the choice is 'B' or 'b':
+
+The output prints "Weight: Y lb" where Y is a floating point value rounded off to two decimal places, representing the estimated weight of the bear in pounds.
+
+If the choice is 'F' or 'f':
+
+The output prints "Altitude: Z m" where Z is a floating point value rounded off to two decimal places, representing the calculated altitude of the bird's flight in meters.
+
+If the given choice is invalid, print "Invalid".
+
+"""
+
+
+
+
+# You are using Python
+animal = input().strip()
+distance = 0.0
+time_taken = 0.0
+footprint_size = 0.0
+weight = 0.0
+flying_pattern = 0.0
+altitude = 0.0
+
+
+while True:
+    if animal == 'D' or animal == 'd':#dear
+        time_taken = float(input())
+        distance = 343 * time_taken      # speed of sound in air is 343 meters per sec
+        print(f"Distance: {distance:.2f} m")
+        break  
+    elif animal == 'B' or animal == 'b':#bear
+        footprint_size = float(input())
+        weight = footprint_size * 5.0 #average weight per square inch for a bear
+        print(f"Weight: {weight :.2f} lb")   # lb means pound
+        break  
+    elif animal == 'F' or animal == 'f':#bird
+        flying_pattern = float(input()) 
+        distance = float(input())
+        altitude = flying_pattern * distance   #altitude = speed * distance       
+        print(f"Altitude: {altitude:.2f} m")
+        break
+    else:
+        print("Invalid")
+        break
+        
+
+
+
+#another method
+
+
+# Get the animal type (D/d, B/b, F/f)
+animal = input().strip()
+
+# Initialize necessary variables
+distance = 0.0
+time_taken = 0.0
+footprint_size = 0.0
+weight = 0.0
+flying_pattern = 0.0
+altitude = 0.0
+
+# Check the animal type and perform the corresponding calculation using if-elif-else
+if animal == 'D' or animal == 'd':  # For Deer
+    # Get the time taken for the sound to travel
+    time_taken = float(input())  
+    # Distance = speed of sound (343 m/s) * time_taken (seconds)
+    distance = 343 * time_taken  
+    print(f"Distance: {distance:.2f} m")
+
+elif animal == 'B' or animal == 'b':  # For Bear
+    # Get the footprint size of the bear in square inches
+    footprint_size = float(input())  
+    # Weight = footprint size * 5.0 (average weight in pounds per square inch)
+    weight = footprint_size * 5.0  
+    print(f"Weight: {weight:.2f} lb")
+
+elif animal == 'F' or animal == 'f':  # For Bird
+    # Get the flying pattern factor
+    flying_pattern = float(input())  
+    # Get the distance covered by the bird in meters
+    distance = float(input())  
+    # Altitude = flying pattern * distance covered
+    altitude = flying_pattern * distance  
+    print(f"Altitude: {altitude:.2f} m")
+
+else:  # If the input is invalid
+    print("Invalid")
